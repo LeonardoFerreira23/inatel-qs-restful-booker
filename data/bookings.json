@@ -1,0 +1,56 @@
+{
+    "valido": {
+        "firstname": "Leonardo",
+        "lastname": "Ferreira",
+        "totalprice": 350,
+        "depositpaid": true,
+        "bookingdates": {
+            "checkin": "2026-10-01",
+            "checkout": "2026-10-05"
+        },
+        "additionalneeds": "Cafe da manha"
+    },
+    "sem_additionalneeds": {
+        "firstname": "Ana",
+        "lastname": "Costa",
+        "totalprice": 120,
+        "depositpaid": false,
+        "bookingdates": {
+            "checkin": "2026-11-10",
+            "checkout": "2026-11-11"
+        }
+    },
+    "incompleto": {
+        "firstname": "SemSobrenome"
+    },
+    "preco_negativo": {
+        "firstname": "Bruno",
+        "lastname": "Lima",
+        "totalprice": -50,
+        "depositpaid": true,
+        "bookingdates": {
+            "checkin": "2026-10-01",
+            "checkout": "2026-10-02"
+        }
+    },
+    "datas_invertidas": {
+        "firstname": "Carla",
+        "lastname": "Souza",
+        "totalprice": 200,
+        "depositpaid": true,
+        "bookingdates": {
+            "checkin": "2026-10-10",
+            "checkout": "2026-10-01"
+        }
+    },
+    "tipos_incorretos": {
+        "firstname": 12345,
+        "lastname": true,
+        "totalprice": "duzentos",
+        "depositpaid": "sim",
+        "bookingdates": {
+            "checkin": "10/10/2026",
+            "checkout": "nao definido"
+        }
+    }
+}
