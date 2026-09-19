@@ -37,6 +37,8 @@ def test_tc009_exclusao_com_token_valido(client_autenticado, booking_criado):
     assert resposta_consulta.status_code == 404
 
 
+@pytest.mark.auth
+@pytest.mark.negativo
 def test_tc018_exclusao_sem_autenticacao(client_autenticado, booking_criado):
     """TC-018 | DELETE /booking/{id} sem token retorna 403 e a reserva é preservada."""
     booking_id = booking_criado["bookingid"]
@@ -48,6 +50,7 @@ def test_tc018_exclusao_sem_autenticacao(client_autenticado, booking_criado):
     assert resposta_consulta.status_code == 200
 
 
+@pytest.mark.negativo
 @pytest.mark.xfail(
     reason="Defeito da API: DELETE de ID inexistente retorna 405 em vez de 404",
 )
