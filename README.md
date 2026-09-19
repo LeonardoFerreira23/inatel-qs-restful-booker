@@ -85,3 +85,11 @@ O relatório é gerado automaticamente em `reports/relatorio.html` — as flags 
 | Júlio César Corrêa | Criação de reservas | TC-003, TC-004, TC-013, TC-014, TC-015 |
 | Matheus Reis | Atualização (PUT/PATCH) | TC-005, TC-006, TC-016, TC-017, TC-019 |
 | Otavio Lima | Persistência e exclusão | TC-007, TC-008, TC-009, TC-018, TC-020 |
+
+## Defeitos conhecidos da API
+
+Comportamentos da Restful Booker que fogem do esperado para uma API REST. Os testes que os evidenciam validam o comportamento real da API e citam o esperado na docstring.
+
+| Endpoint | Esperado | Recebido | Teste |
+| --- | --- | --- | --- |
+| `DELETE /booking/{id}` com ID inexistente | 404 | 405 | TC-020 |
