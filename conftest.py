@@ -30,6 +30,11 @@ def token():
 
 
 @pytest.fixture
+def id_inexistente():
+    return 999999999
+
+
+@pytest.fixture
 def client():
     return BookerClient()
 
