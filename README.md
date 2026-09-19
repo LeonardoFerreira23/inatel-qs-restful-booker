@@ -16,7 +16,7 @@ Escolhida por ser pública, permitir explicitamente automação de testes, expor
 
 | Item | Versão |
 | --- | --- |
-| Python | 3.14.7 |
+| Python | 3.12.10 |
 | pytest | 9.1.1 |
 | requests | 2.34.2 |
 | pytest-html | 4.2.0 |
