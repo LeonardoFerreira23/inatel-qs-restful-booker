@@ -93,3 +93,17 @@ Comportamentos da Restful Booker que fogem do esperado para uma API REST. Os tes
 | Endpoint | Esperado | Recebido | Teste |
 | --- | --- | --- | --- |
 | `DELETE /booking/{id}` com ID inexistente | 404 | 405 | TC-020 |
+
+
+## Uso de Inteligência Artificial.
+
+Durante o desenvolvimento deste projeto, foram utilizadas ferramentas de IA como recurso de apoio ao trabalho dos integrantes do grupo.
+
+A IA foi utilizada nas seguintes atividades:
+
+- apoio na revisão do plano de testes;
+- auxílio na organização dos casos de teste;
+- geração e revisão de trechos de código dos testes automatizados;
+- apoio na revisão da estrutura e organização do porjeto.
+
+Os integrantes do grupo analisaram, adaptaram e validaram o conteúdo produzido com auxílio de IA.
