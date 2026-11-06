@@ -1,0 +1,31 @@
+jenkins:
+  numExecutors: 2
+  securityRealm:
+    local:
+      allowsSignup: false
+      users:
+        - id: admin
+          password: ${JENKINS_ADMIN_PASSWORD}
+  authorizationStrategy:
+    loggedInUsersCanDoAnything:
+      allowAnonymousRead: false
+
+unclassified:
+  location:
+    url: http://localhost:8080/
+
+jobs:
+  - script: |
+      pipelineJob('restful-booker') {
+        definition {
+          cpsScm {
+            scm {
+              git {
+                remote { url('${REPO_URL:-https://github.com/LeonardoFerreira23/inatel-qs-restful-booker.git}') }
+                branch('${REPO_BRANCH:-*/main}')
+              }
+            }
+            scriptPath('Jenkinsfile')
+          }
+        }
+      }
