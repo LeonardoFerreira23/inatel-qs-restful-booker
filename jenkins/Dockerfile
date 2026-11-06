@@ -1,9 +1,13 @@
 FROM jenkins/jenkins:2.580.2-lts-jdk21
 
 USER root
-RUN apt-get update \
-    && apt-get install -y --no-install-recommends python3 python3-venv \
-    && rm -rf /var/lib/apt/lists/*
+# o apt do Debian so oferece o Python 3.13; o uv instala a versao exata do projeto
+COPY --from=ghcr.io/astral-sh/uv:0.13.1 /uv /usr/local/bin/uv
+RUN uv python install 3.12.10 --install-dir /opt/uv-python \
+    && mv /opt/uv-python/cpython-3.12.10-* /opt/python \
+    && rm -rf /opt/uv-python
+# no PATH, sem symlink: por symlink o venv nao acha a biblioteca padrao do Python
+ENV PATH=/opt/python/bin:$PATH
 USER jenkins
 
 COPY plugins.txt /usr/share/jenkins/ref/plugins.txt
