@@ -20,7 +20,7 @@ Escolhida por ser pública, permitir explicitamente automação de testes, expor
 | pytest | 9.1.1 |
 | requests | 2.34.2 |
 | pytest-html | 4.2.0 |
-| CI | GitHub Actions |
+| CI | Jenkins |
 
 ## Estrutura do projeto
 
@@ -37,9 +37,8 @@ inatel-qs-restful-booker/
 │   └── api_client.py            # cliente HTTP da API
 ├── tests/                       # casos de teste TC-001 a TC-020
 ├── reports/                     # relatórios gerados (ignorados pelo git)
-└── .github/
-    └── workflows/
-        └── tests.yml            # execução automática no CI
+└── jenkins
+
 ```
 
 ## Instalação
