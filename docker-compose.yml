@@ -11,7 +11,7 @@ services:
     depends_on: [restful-booker]
 
   restful-booker:
-    image: mwinteringham/restfulbooker:lates
+    image: mwinteringham/restfulbooker:latest
     ports: ["3001:3001"]
 
 volumes:
