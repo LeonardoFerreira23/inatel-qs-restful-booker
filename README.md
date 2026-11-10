@@ -31,10 +31,10 @@ Escolhida por ser pública, permitir expli, expor um CRUD completo com autentica
 inatel-qs-restful-booker/
 ├── conftest.py                  # fixtures compartilhadas
 ├── pytest.ini                   # configuração e flags padrão
-├── requirements.txt             # depend
+├── requirements.txt             # dependências com versões fixadas
 ├── run_tests.py                 # execução unificada
 ├── Jenkinsfile                  # pipeline: Dependencias, Testes, Build
-├── docker-compose.yml           # jenkin
+├── docker-compose.yml           # jenkins + API local
 ├── data/
 │   └── bookings.json            # massa de teste separada do código
 ├── utils/
@@ -43,7 +43,7 @@ inatel-qs-restful-booker/
 ├── tests/                       # casos de teste TC-001 a TC-020
 ├── reports/                     # relatórios gerados (ignorados pelo git)
 └── jenkins/
-    ├── Dockerfile               # imagem0
+    ├── Dockerfile               # imagem do Jenkins com Python 3.12.10
     ├── casc.yaml                # configuração como código (usuário e job)
     └── plugins.txt              # plugins instalados na imagem
 ```
@@ -81,10 +81,9 @@ pip install -r requirements.txt
 | `pytest --html=reports/relatorio.html --self-contained-html` | Executa e gera o relatório explicitamente |
 | `python run_tests.py` | Executa por meio do script de execução unificada |
 
-O relatório é gerado automaticamente em `reports/relatorio.html` e o JUnit em `reports/junit.xml` — as flags já
-estão configuradas no `pytest.ini`.
+O relatório é gerado automaticamente em `reports/relatorio.html` e o JUnit em `reports/junit.xml` — as flags já estão configuradas no `pytest.ini`.
 
-Por padrão os testes usam a API pública. ncia, defina `BOOKER_BASE_URL` (ex.:`http://localhost:3001`).
+Por padrão os testes usam a API pública. Para apontar para outra instância, defina , defina `BOOKER_BASE_URL` (ex.:`http://localhost:3001`).
 
 ## Execução com Docker Compose
 
@@ -101,7 +100,7 @@ Dentro do Compose os testes apontam para a API local via `BOOKER_BASE_URL`, sem 
 O volume `jenkins_home` mantém jobs e histórico entre reinícios. Para zerar tudo: `docker compose down -v`.
 
 O job `restful-booker` é criado automaticamente pelo `casc.yaml` e lê o `Jenkinsfile` da branch `main` do
-GitHub. Para testar outra branch, defina (ex.: `*/minha-branch`).
+GitHub. Para testar outra branch, defina REPO_BRANCH antes de subir.
 
 ### Pipeline
 
@@ -112,7 +111,7 @@ GitHub. Para testar outra branch, defina (ex.: `*/minha-branch`).
 | Build | empacota a suíte em `dist/restful-booker-tests-<build>.tar.gz` |
 
 
-
+ ## Situação do projeto (S07)
 - [x] Jenkins em container com configuração como código
 - [x] Pipeline com estágios de dependências, testes e build
 - [x] Docker Compose com Jenkins e API local, com volume persistente
