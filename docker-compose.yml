@@ -1,0 +1,18 @@
+services:
+  jenkins:
+    build: ./jenkins
+    ports: ["8080:8080"]
+    environment:
+      JENKINS_ADMIN_PASSWORD: ${JENKINS_ADMIN_PASSWORD:-admin}
+      REPO_BRANCH: ${REPO_BRANCH:-*/main}
+      BOOKER_BASE_URL: http://restful-booker:3001
+    volumes:
+      - jenkins_home:/var/jenkins_home
+    depends_on: [restful-booker]
+
+  restful-booker:
+    image: mwinteringham/restfulbooker:lates
+    ports: ["3001:3001"]
+
+volumes:
+  jenkins_home:
