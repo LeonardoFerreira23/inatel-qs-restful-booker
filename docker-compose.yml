@@ -7,7 +7,7 @@ services:
     environment:
       JENKINS_ADMIN_PASSWORD: ${JENKINS_ADMIN_PASSWORD:-admin}
       REPO_URL: ${REPO_URL}
-      REPO_BRANCH: ${REPO_BRANCH:-*/infra/docker-compose}
+      REPO_BRANCH: ${REPO_BRANCH:-*/main}
       BOOKER_BASE_URL: http://restful-booker:3001
       EMAIL_TO: ${EMAIL_TO}
       SMTP_HOST: ${SMTP_HOST}
