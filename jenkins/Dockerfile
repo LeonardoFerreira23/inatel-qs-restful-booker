@@ -8,6 +8,8 @@ RUN uv python install 3.12.10 --install-dir /opt/uv-python \
     && rm -rf /opt/uv-python
 # no PATH, sem symlink: por symlink o venv nao acha a biblioteca padrao do Python
 ENV PATH=/opt/python/bin:$PATH
+# pasta do volume compartilhado com o nginx; o volume herda o dono na primeira montagem
+RUN mkdir -p /var/relatorios && chown jenkins:jenkins /var/relatorios
 USER jenkins
 
 COPY plugins.txt /usr/share/jenkins/ref/plugins.txt
