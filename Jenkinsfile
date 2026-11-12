@@ -20,6 +20,14 @@ pipeline {
                 always {
                     junit allowEmptyResults: true, testResults: 'reports/junit.xml'
                     archiveArtifacts allowEmptyArchive: true, artifacts: 'reports/**'
+                    sh '''
+                        if [ -d /var/relatorios ]; then
+                            mkdir -p "/var/relatorios/build-$BUILD_NUMBER" /var/relatorios/ultimo
+                            cp -r reports/. "/var/relatorios/build-$BUILD_NUMBER/"
+                            rm -rf /var/relatorios/ultimo/*
+                            cp -r reports/. /var/relatorios/ultimo/
+                        fi
+                    '''
                 }
             }
         }
