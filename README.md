@@ -76,6 +76,25 @@ pip install -r requirements.txt
 
 O relatório é gerado automaticamente em `reports/relatorio.html` — as flags já estão configuradas no `pytest.ini`.
 
+## Ambiente com Docker Compose
+
+```bash
+docker compose up -d --build
+```
+
+| Serviço | Endereço | Para que serve |
+| --- | --- | --- |
+| `jenkins` | <http://localhost:8080> | Pipeline (usuário `admin`, senha `admin` ou `JENKINS_ADMIN_PASSWORD`) |
+| `restful-booker` | <http://localhost:3001> | API local usada pelos testes no pipeline |
+| `mailpit` | <http://localhost:8025> | Caixa de e-mail de teste |
+| `relatorios` | <http://localhost:8081> | Nginx com os relatórios gerados pelo Jenkins |
+
+Os dados ficam em volumes nomeados (`jenkins_home`, `mailpit_data` e `relatorios`), então continuam lá depois de um `docker compose down` seguido de `up`. Para apagar tudo, use `docker compose down -v`.
+
+Ao fim de cada build o Jenkins copia a pasta `reports/` para o volume `relatorios`, em `build-<número>/` e em `ultimo/`. O último relatório fica em <http://localhost:8081/ultimo/>.
+
+> Em Mac com chip Apple a imagem da API roda emulada (`platform: linux/amd64`), porque não existe versão arm64 dela.
+
 ## Equipe e divisão dos casos
 
 | Integrante | Tema | Casos |
