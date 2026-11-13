@@ -14,7 +14,7 @@ pipeline {
 
         stage('Testes') {
             steps {
-                sh '.venv/bin/python run_tests.py'
+                sh '.venv/bin/python -m pytest --cov=utils.api_client --cov-report=term-missing --cov-report=html:reports/coverage-html --cov-report=xml:reports/coverage.xml --cov-fail-under=90'
             }
             post {
                 always {
