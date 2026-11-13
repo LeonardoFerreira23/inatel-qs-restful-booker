@@ -6,3 +6,5 @@ reports/*
 !reports/.gitkeep
 *.pyc
 .coverage
+docs/
+.env
