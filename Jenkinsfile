@@ -13,6 +13,9 @@ pipeline {
         }
 
         stage('Testes') {
+            environment {
+                BOOKER_BASE_URL = 'http://restful-booker-local:3001'
+            }
             steps {
                 sh '.venv/bin/python run_tests.py'
             }
