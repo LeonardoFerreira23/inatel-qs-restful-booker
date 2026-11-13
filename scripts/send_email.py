@@ -1,7 +1,6 @@
-
 import os
-import sys
 import smtplib
+import sys
 from email.message import EmailMessage
 
 
@@ -20,11 +19,8 @@ def send_email(status):
 
     # Sem destinatário, a notificação é ignorada explicitamente.
     if not email_to:
-        print(
-            "AVISO: EMAIL_TO não configurado. "
-            "Notificação por e-mail ignorada."
-        )
-        return
+        print("AVISO: EMAIL_TO não configurado. Notificação por e-mail ignorada.")
+        sys.exit(1)
 
     # Permite múltiplos destinatários separados por vírgula ou ponto e vírgula.
     recipients = [
@@ -35,7 +31,7 @@ def send_email(status):
 
     if not recipients:
         print("AVISO: Nenhum destinatário válido configurado.")
-        return
+        sys.exit(1)
 
     # Define assunto e mensagem conforme o resultado da pipeline.
     if status == "SUCCESS":
