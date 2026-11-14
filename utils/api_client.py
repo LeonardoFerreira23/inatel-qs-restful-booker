@@ -3,6 +3,7 @@ import os
 import requests
 
 BASE_URL = os.getenv("BOOKER_BASE_URL", "https://restful-booker.herokuapp.com")
+print(f"API utilizada nos testes: {BASE_URL}")
 TIMEOUT = int(os.getenv("BOOKER_TIMEOUT", "15"))
 
 
