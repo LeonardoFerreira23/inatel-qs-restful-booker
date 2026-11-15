@@ -1,6 +1,6 @@
 services:
   jenkins:
-    build: ./jenkins
+    image: juliocesarcorrea001/inatel-qs-jenkins:latest
     ports:
       - "8080:8080"
     environment:
