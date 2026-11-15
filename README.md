@@ -158,14 +158,8 @@ Comportamentos da Restful Booker que fogem do esperado para uma API REST. Os tes
 
 ## Uso de Inteligência Artificial
 
-Durante o desenvolvimento deste projeto, foram utilizadas ferramentas de IA como recurso de apoio ao trabalho dos integrantes do grupo.
+Durante o desenvolvimento do projeto, foram utilizadas ferramentas de Inteligência Artificial como apoio às atividades de configuração, implementação, debugging e análise de problemas.
 
-A IA foi utilizada nas seguintes atividades:
+Para consultar os modelos utilizados, as finalidades de uso, exemplos reais de prompts, decisões tomadas e atividades desenvolvidas manualmente, acesse a documentação completa:
 
-- apoio na revisão do plano de testes;
-- auxílio na organização dos casos de tes
-- geração e revisão de trechos de código dos testes automatizados;
-- apoio na revisão da estrutura e organização do projeto;
-- apoio na configuração do pipeline Jenkins e do Docker Compose.
-
-Os integrantes do grupo analisaram, adaptaram e validaram o conteúdo produzido com auxílio de IA.
+[Documentação sobre o Uso de IA](Docs/Uso_De_Ia.md)
