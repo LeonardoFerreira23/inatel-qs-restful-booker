@@ -59,13 +59,13 @@ pipeline {
             }
         }
 
-        stage('Testes') {
+         stage('Testes') {
             steps {
                 script {
                     if (isUnix()) {
-                        sh '.venv/bin/python -m pytest --cov=utils.api_client --cov-report=term-missing --cov-report=html:reports/coverage-html --cov-report=xml:reports/coverage.xml --cov-fail-under=90'
+                        sh '.venv/bin/python run_tests.py --cov=utils.api_client --cov-report=term-missing --cov-report=html:reports/coverage-html --cov-report=xml:reports/coverage.xml --cov-fail-under=90 --junitxml=reports/junit.xml'
                     } else {
-                        bat '.venv\\Scripts\\python.exe -m pytest --cov=utils.api_client --cov-report=term-missing --cov-report=html:reports/coverage-html --cov-report=xml:reports/coverage.xml --cov-fail-under=90'
+                        bat '.venv\\Scripts\\python.exe run_tests.py --cov=utils.api_client --cov-report=term-missing --cov-report=html:reports/coverage-html --cov-report=xml:reports/coverage.xml --cov-fail-under=90 --junitxml=reports/junit.xml'
                     }
                 }
             }
